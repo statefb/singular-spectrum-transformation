@@ -1,0 +1,8 @@
+__pycache__
+/dtwalign.egg-info/
+/build/
+/dist/
+*.pptx
+register.py
+.ipynb_checkpoints
+.pypirc
