@@ -76,7 +76,7 @@ class SingularSpectrumTransformation():
         assert isinstance(self.order,int), "order of partial time series must be int."
         assert isinstance(self.lag,int), "lag between test series and history series must be int."
         assert isinstance(self.rank_lanczos,int), "rank for lanczos must be int."
-        assert self.win_length + self.order + self.lag >= x.size, "data length is too short."
+        assert self.win_length + self.order + self.lag < x.size, "data length is too short."
 
         # all values should be positive for numerical stabilization
         x_scaled = MinMaxScaler(feature_range=(1,2)).fit_transform(x.reshape(-1,1))[:,0]
