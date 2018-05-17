@@ -32,5 +32,6 @@ score = sst.score_offline(data)
 
 ## References
 TODO
-1. Tsuyoshi Ide et al., Change-Point Detection using Krylov Subspace Learning
-2. Tsuyoshi Ide, Speeding up Change-Point Detection using Matrix Compression (Japanse)
+1. Tsuyoshi Ide, Koji Tsuda, "Change-Point Detection using Krylov Subspace Learning"
+2. Tsuyoshi Ide, "Speeding up Change-Point Detection using Matrix Compression (Japanse)"
+3. Tsuyoshi Ide, Masashi Sugiyama, "Anomaly Detection and Change Detection (Japanse)"
