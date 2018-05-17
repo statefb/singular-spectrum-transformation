@@ -4,12 +4,12 @@ from setuptools import setup
 from setuptools import find_packages
 
 # meta info
-NAME = "sst"
-VERSION = "0.0.1b"
+NAME = "fastsst"
+VERSION = "0.0.0"
 AUTHOR = "Takehiro Suzuki"
 AUTHOR_EMAIL = ""
 URL = "https://github.com/statefb/dtwalign"
-DESCRIPTION = ''
+DESCRIPTION = 'An implementation of change point detection algorithm.'
 LICENSE = "MIT"
 
 if not os.path.exists('README.txt'):
@@ -30,6 +30,9 @@ def main():
         include_package_data=True,
         packages=find_packages(),
         install_requires=[
+            numpy,
+            sklearn,
+            numba,
         ],
         dependency_links = [
 
