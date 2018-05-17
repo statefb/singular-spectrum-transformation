@@ -7,6 +7,7 @@ fastsst.egg-info/PKG-INFO
 fastsst.egg-info/SOURCES.txt
 fastsst.egg-info/dependency_links.txt
 fastsst.egg-info/not-zip-safe
+fastsst.egg-info/requires.txt
 fastsst.egg-info/top_level.txt
 fastsst/util/__init__.py
 fastsst/util/linear_algebra.py
