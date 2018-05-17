@@ -5,7 +5,7 @@ from sklearn.preprocessing import MinMaxScaler
 from .util.linear_algebra import power_method,lanczos,eig_tridiag
 
 class SingularSpectrumTransformation():
-    def __init__(self,win_length,n_components=3,order=None,lag=None,\
+    def __init__(self,win_length,n_components=5,order=None,lag=None,\
         use_lanczos=True,rank_lanczos=None,eps=1e-3):
         """Change point detection with Singular Spectrum Transformation
 
@@ -139,7 +139,7 @@ def _create_hankel(x,order,start,end):
 
     Returns
     -------
-    2d array [window length, order]
+    2d array shape (window length, order)
 
     """
     win_length = end - start
