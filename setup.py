@@ -40,6 +40,7 @@ def main():
         tests_require=[],
         setup_requires=[],
         license=LICENSE,
+        test_suite="tests",
         classifiers = [
             "Programming Language :: Python :: 3.5",
             "Programming Language :: Python :: 3.6",

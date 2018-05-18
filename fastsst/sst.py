@@ -155,7 +155,7 @@ def _sst_lanczos(P_test,P_history,n_components,rank,x0):
     # calculate the first singular vec of test matrix
     u,_,_ = power_method(P_test,x0,n_iter=1)
     T = lanczos(P_history,u,rank)
-    val,vec = eig_tridiag(T)
+    vec,val = eig_tridiag(T)
     return 1 - (vec[0,:n_components] ** 2).sum(),u
 
 @jit("f8(f8[:,:],f8[:,:],u1)",nopython=True)

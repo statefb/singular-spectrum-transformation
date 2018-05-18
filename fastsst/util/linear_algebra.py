@@ -56,4 +56,4 @@ def eig_tridiag(T):
     # ------------------------------------------------------
     u,s,_ = np.linalg.svd(T)
     # NOTE: return value must be ordered
-    return s,u
+    return u,s
