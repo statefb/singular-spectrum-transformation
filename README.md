@@ -1,10 +1,10 @@
 # SST (Singular Spectrum Transformation)
-Implementation of Singular Spectrum Transformation for python.
+A fast implementation of Singular Spectrum Transformation for python.
 
 ## What is SST?
 A change point detection algorithm
 ![example](img/example_step.png)
-![example](img/example_sin.png)
+![example](img/example_freq.png)
 
 ## Features
 #### fast computation

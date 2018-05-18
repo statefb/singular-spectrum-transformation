@@ -48,6 +48,12 @@ def eig_tridiag(T):
     """compute eigen value decomposition for tridiag matrix
     """
     # TODO: efficient implementation
+    # ------------------------------------------------------
+    # Is it really necessary to implement fast eig computation ?
+    # The size of matrix T is practically at most 20 since almost 2 times
+    # larger than n_components. Therefore fast implementation such as
+    # QL algorithm can't provide computational cost benefit in total.
+    # ------------------------------------------------------
     u,s,_ = np.linalg.svd(T)
-    return s,u
     # NOTE: return value must be ordered
+    return s,u
