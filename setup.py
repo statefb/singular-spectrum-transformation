@@ -31,6 +31,8 @@ def main():
         packages=find_packages(),
         install_requires=[
             "numpy",
+            "pandas",
+            "scipy",
             "sklearn",
             "numba",
         ],

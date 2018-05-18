@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/statefb/singular-spectrum-transformation.svg?branch=master)](https://travis-ci.org/statefb/singular-spectrum-transformation)  
 # SST (Singular Spectrum Transformation)
 A fast implementation of Singular Spectrum Transformation for python.
 
