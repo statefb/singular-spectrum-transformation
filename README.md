@@ -28,7 +28,6 @@ score = sst.score_offline(data)
 
 ## TODO
 * upload to PyPI
-* implement efficient tridiag matrix decomposition
 * online evaluation
 
 ## References
