@@ -14,7 +14,7 @@ class TestSingularSpectrumTransformation(unittest.TestCase):
         pass
 
     def test_sst(self):
-        x = pd.read_csv("test_data/freq_change.csv").values[:,0]
+        x = pd.read_csv("tests/test_data/freq_change.csv").values[:,0]
         sst = SingularSpectrumTransformation(win_length=70)
         score = sst.score_offline(x)
         assert score.size == x.size
