@@ -46,6 +46,7 @@ class SingularSpectrumTransformation():
             for the detail of lanczos method, see [1].
         eps : float
             specify how much noise will be added to initial vector for power method.
+            (FEedback impLIcit kernel approXimation method)
             for the detail, see [2].
 
         References

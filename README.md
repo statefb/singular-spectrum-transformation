@@ -6,7 +6,7 @@ A fast implementation of Singular Spectrum Transformation for python.
 A change point detection algorithm.
 ![example](img/example_step.png)
 ![example](img/example_freq.png)
-see [more example](./example/examples.ipynb)
+see [more examples](./example/examples.ipynb)
 
 ## Features
 #### fast computation
@@ -16,7 +16,7 @@ see [more example](./example/examples.ipynb)
 
 ## Installation
 ```
-$python setup.py install
+$pip install fastsst
 ```
 
 ## Usage
@@ -28,11 +28,9 @@ score = sst.score_offline(data)
 ```
 
 ## TODO
-* upload to PyPI
 * online evaluation
 
 ## References
-TODO
-1. Tsuyoshi Ide, Koji Tsuda, "Change-Point Detection using Krylov Subspace Learning"
-2. Tsuyoshi Ide, "Speeding up Change-Point Detection using Matrix Compression (Japanse)"
-3. Tsuyoshi Ide, Masashi Sugiyama, "Anomaly Detection and Change Detection (Japanse)"
+1. Tsuyoshi Ide, Koji Tsuda, Change-Point Detection using Krylov Subspace Learning, SIAM International Conference on Data Mining, pp.515-520, 2007
+2. Tsuyoshi Ide, Speeding up Change-Point Detection using Matrix Compression (Japanse), Workshop on Information-Based Induction Sciences, 2006
+3. Tsuyoshi Ide, Masashi Sugiyama, Anomaly Detection and Change Detection (Japanse), Kodansha, 2015

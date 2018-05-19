@@ -52,7 +52,7 @@ def eig_tridiag(T):
     # Is it really necessary to implement fast eig computation ?
     # The size of matrix T is practically at most 20 since almost 2 times
     # larger than n_components. Therefore fast implementation such as
-    # QL algorithm can't provide computational cost benefit in total.
+    # QL algorithm may not provide computational cost benefit in total.
     # ------------------------------------------------------
     u,s,_ = np.linalg.svd(T)
     # NOTE: return value must be ordered

@@ -5,11 +5,11 @@ from setuptools import find_packages
 
 # meta info
 NAME = "fastsst"
-VERSION = "0.0.0"
+VERSION = "0.0.2"
 AUTHOR = "Takehiro Suzuki"
 AUTHOR_EMAIL = ""
-URL = "https://github.com/statefb/dtwalign"
-DESCRIPTION = 'An implementation of change point detection algorithm.'
+URL = "https://github.com/statefb/singular-spectrum-transformation"
+DESCRIPTION = 'A fast implementation of change point detection algorithm(SST).'
 LICENSE = "MIT"
 
 if not os.path.exists('README.txt'):
