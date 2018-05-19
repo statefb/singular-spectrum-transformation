@@ -24,6 +24,11 @@ $pip install fastsst
 from fastsst import SingularSpectrumTransformation
 
 sst = SingularSpectrumTransformation(win_length=30)
+"""
+note:
+ - data must be 1d np.ndarray
+ - the first run takes a few seconds for jit compling
+"""
 score = sst.score_offline(data)
 ```
 
