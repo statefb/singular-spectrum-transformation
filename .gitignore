@@ -7,3 +7,4 @@ register.py
 .ipynb_checkpoints
 .pypirc
 /notebooks/
+/all_data/
