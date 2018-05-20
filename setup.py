@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""setup.py
+"""
 import os
 from setuptools import setup
 from setuptools import find_packages
@@ -25,7 +27,7 @@ def main():
         author_email=AUTHOR_EMAIL,
         url=URL,
         description=DESCRIPTION,
-        long_description = LONG_DESCRIPTION,
+        long_description=LONG_DESCRIPTION,
         zip_safe=False,
         include_package_data=True,
         packages=find_packages(),
@@ -36,14 +38,14 @@ def main():
             "sklearn",
             "numba",
         ],
-        dependency_links = [
+        dependency_links=[
 
         ],
         tests_require=[],
         setup_requires=[],
         license=LICENSE,
         test_suite="tests",
-        classifiers = [
+        classifiers=[
             "Programming Language :: Python :: 3.5",
             "Programming Language :: Python :: 3.6",
             "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
