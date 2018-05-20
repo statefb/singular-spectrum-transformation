@@ -46,7 +46,7 @@ class SingularSpectrumTransformation():
         is_scaled : bool
             if false, min-max scaling will be applied(recommended).
         use_lanczos : boolean
-            if true, lanczos method will be used, which makes faster.
+            if true, Lanczos method will be used, which makes faster.
         rank_lanczos : int
             the rank which will be used for lanczos method.
             for the detail of lanczos method, see [1].

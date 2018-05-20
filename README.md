@@ -10,7 +10,7 @@ see more [examples](./notebooks/examples.ipynb)
 
 ## Features
 #### fast computation
-* efficient algorithm using lanczos method
+* efficient algorithm using Lanczos method
 * [Numba](http://numba.pydata.org/)
 
 
