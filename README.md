@@ -6,7 +6,7 @@ A fast implementation of Singular Spectrum Transformation for python.
 A change point detection algorithm.
 ![example](img/example_step.png)
 ![example](img/example_freq.png)
-see more [examples](./example/examples.ipynb)
+see more [examples](./notebooks/examples.ipynb)
 
 ## Features
 #### fast computation
@@ -19,7 +19,7 @@ see more [examples](./example/examples.ipynb)
 $pip install fastsst
 ```
 
-## Usage
+## Basic Usage
 ```usage.py
 from fastsst import SingularSpectrumTransformation
 
@@ -32,6 +32,9 @@ note:
 """
 score = sst.score_offline(data)
 ```
+
+## Others
+* [Comparison between conventional method(i.e. SVD) and faster method(i.e. lanczos)](./notebooks/comparison_between_svd_and_lanczos.ipynb)
 
 ## TODO
 * online evaluation

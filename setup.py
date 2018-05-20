@@ -7,7 +7,7 @@ from setuptools import find_packages
 
 # meta info
 NAME = "fastsst"
-VERSION = "0.0.3"
+VERSION = "0.0.4"
 AUTHOR = "Takehiro Suzuki"
 AUTHOR_EMAIL = ""
 URL = "https://github.com/statefb/singular-spectrum-transformation"

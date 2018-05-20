@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
+"""Singluar Spectrum Transformation.
 
-"""
 The MIT License (MIT)
 Copyright (c) 2018 statefb.
 Permission is hereby granted, free of charge, to any person obtaining a copy
