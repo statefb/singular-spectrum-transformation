@@ -26,7 +26,7 @@ from .util.linear_algebra import power_method,lanczos,eig_tridiag
 
 class SingularSpectrumTransformation():
     def __init__(self,win_length,n_components=5,order=None,lag=None,\
-        use_lanczos=True,rank_lanczos=None,eps=1e-3):
+        is_scaled=False,use_lanczos=True,rank_lanczos=None,eps=1e-3):
         """Change point detection with Singular Spectrum Transformation
 
         Parameters
@@ -39,6 +39,8 @@ class SingularSpectrumTransformation():
             number of columns of Hankel matrix.
         lag : int
             interval between history Hankel matrix and test Hankel matrix.
+        is_scaled : bool
+            if false, min-max scaling will be applied(recommended).
         use_lanczos : boolean
             if true, lanczos method will be used, which makes faster.
         rank_lanczos : int
@@ -46,7 +48,7 @@ class SingularSpectrumTransformation():
             for the detail of lanczos method, see [1].
         eps : float
             specify how much noise will be added to initial vector for power method.
-            (FEedback impLIcit kernel approXimation method)
+            (FELIX: FEedback impLIcit kernel approXimation method)
             for the detail, see [2].
 
         References
@@ -59,6 +61,7 @@ class SingularSpectrumTransformation():
         self.n_components = n_components
         self.order = order
         self.lag = lag
+        self.is_scaled = is_scaled
         self.use_lanczos = use_lanczos
         self.rank_lanczos = rank_lanczos
         self.eps = eps
@@ -100,7 +103,10 @@ class SingularSpectrumTransformation():
         assert self.win_length + self.order + self.lag < x.size, "data length is too short."
 
         # all values should be positive for numerical stabilization
-        x_scaled = MinMaxScaler(feature_range=(1,2)).fit_transform(x.reshape(-1,1))[:,0]
+        if not self.is_scaled:
+            x_scaled = MinMaxScaler(feature_range=(1,2)).fit_transform(x.reshape(-1,1))[:,0]
+        else:
+            x_scaled = x
 
         score = _score_offline(x_scaled,self.order,\
             self.win_length,self.lag,self.n_components,self.rank_lanczos,self.eps,
@@ -134,16 +140,13 @@ def _score_offline(x,order,win_length,lag,n_components,rank,eps,use_lanczos):
             end = t
         )
 
-        P_history = X_history.T @ X_history
-        P_test = X_test.T @ X_test
-
         if use_lanczos:
-            score[t-1],x1 = _sst_lanczos(P_test,P_history,n_components,rank,x0)
+            score[t-1],x1 = _sst_lanczos(X_test,X_history,n_components,rank,x0)
             # update initial vector for power method
             x0 = x1 + eps * np.random.rand(x0.size)
             x0 /= np.linalg.norm(x0)
         else:
-            score[t-1] = _sst_svd(P_test,P_history,n_components)
+            score[t-1] = _sst_svd(X_test,X_history,n_components)
 
     return score
 
@@ -170,9 +173,11 @@ def _create_hankel(x,order,start,end):
     return X
 
 @jit(nopython=True)
-def _sst_lanczos(P_test,P_history,n_components,rank,x0):
+def _sst_lanczos(X_test,X_history,n_components,rank,x0):
     """run sst algorithm with lanczos method (FELIX-SST algorithm)
     """
+    P_history = X_history.T @ X_history
+    P_test = X_test.T @ X_test
     # calculate the first singular vec of test matrix
     u,_,_ = power_method(P_test,x0,n_iter=1)
     T = lanczos(P_history,u,rank)
@@ -180,11 +185,11 @@ def _sst_lanczos(P_test,P_history,n_components,rank,x0):
     return 1 - (vec[0,:n_components] ** 2).sum(),u
 
 @jit("f8(f8[:,:],f8[:,:],u1)",nopython=True)
-def _sst_svd(P_test,P_history,n_components):
+def _sst_svd(X_test,X_history,n_components):
     """run sst algorithm with svd
     """
-    U_test,_,_ = np.linalg.svd(P_test,full_matrices=False)
-    U_history,_,_ = np.linalg.svd(P_history,full_matrices=False)
+    U_test,_,_ = np.linalg.svd(X_test,full_matrices=False)
+    U_history,_,_ = np.linalg.svd(X_history,full_matrices=False)
     _,s,_ = np.linalg.svd(U_test[:,:n_components].T @ U_history[:,:n_components],\
         full_matrices=False)
     return 1 - s[0]

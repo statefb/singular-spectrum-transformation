@@ -6,7 +6,7 @@ A fast implementation of Singular Spectrum Transformation for python.
 A change point detection algorithm.
 ![example](img/example_step.png)
 ![example](img/example_freq.png)
-see [more examples](./example/examples.ipynb)
+see more [examples](./example/examples.ipynb)
 
 ## Features
 #### fast computation
@@ -24,6 +24,7 @@ $pip install fastsst
 from fastsst import SingularSpectrumTransformation
 
 sst = SingularSpectrumTransformation(win_length=30)
+
 """
 note:
  - data must be 1d np.ndarray
